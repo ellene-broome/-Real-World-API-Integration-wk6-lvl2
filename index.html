@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination Posts</title>
+
+    <!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+    .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out both;
+}
+
+    .tilt:hover {
+    transform: rotateZ(0.3deg) scale(1.02);
+}
+</style>
+
+    
+</head>
+<body class="bg-green-50 min-h-screen flex flex-col items-center justify-start p-6">
+
+    <h1 class="text-4xl font-bold text-green-900 mb-4 animate-pulse">Pagination Posts</h1>
+
+    <!-- Loading message -->
+  <div id="loadingMessage" class="hidden text-blue-700 font-medium mb-4 animate-pulse">
+    Loading posts...
+  </div>
+
+    <!-- Posts will be injected here -->
+  <div id="postsContainer" class="w-full max-w-2xl space-y-4"></div>
+
+  <p id="pageInfo" class="text-green-800 font-medium mt-4 mb-2">Page 1</p>
+
+
+    <!-- Pagination buttons -->
+  <div id="buttons" class="mt-6 flex gap-4">
+    <button id="prevButton" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 mr-2">Previous</button>
+<button id="nextButton" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Next</button>
+  </div>
+
+    
+    <script src="pagination.js"></script>
+</body>
+</html>
