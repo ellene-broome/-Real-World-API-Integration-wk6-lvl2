@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagination Posts</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pagination Posts</title>
 
-    <!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-    @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-    .animate-fadeIn {
-    animation: fadeIn 0.5s ease-in-out both;
-}
-
-    .tilt:hover {
-    transform: rotateZ(0.3deg) scale(1.02);
-}
-</style>
-
-    
+  <!-- Load Tailwind CSS from CDN (for styling) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-50 min-h-screen flex flex-col items-center justify-start p-6">
 
-    <h1 class="text-4xl font-bold text-green-900 mb-4 animate-pulse">Pagination Posts</h1>
+<body class="bg-green-50 min-h-screen flex flex-col items-center justify-center p-4">
 
-    <!-- Loading message -->
-  <div id="loadingMessage" class="hidden text-blue-700 font-medium mb-4 animate-pulse">
-    Loading posts...
+  <!-- Page title -->
+  <h1 class="text-4xl font-bold text-green-900 mb-4 animate-pulse">Paginated Blog Posts</h1>
+
+  <!-- Display the current page number -->
+  <div id="pageInfo" class="mb-4 text-green-700 font-semibold text-lg">Page 1</div>
+
+  <!-- Toast (pops up if user clicks too fast) -->
+  <div id="toast"
+       class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg shadow-md opacity-0 transition-opacity duration-300 ease-in-out z-50">
   </div>
 
-    <!-- Posts will be injected here -->
-  <div id="postsContainer" class="w-full max-w-2xl space-y-4"></div>
+  <!-- Container for all post cards (results from API) -->
+  <div id="postsContainer" class="space-y-4 w-full max-w-2xl px-4"></div>
 
-  <p id="pageInfo" class="text-green-800 font-medium mt-4 mb-2">Page 1</p>
+  <!-- Controls section: pagination buttons, rate message, and spinner -->
+  <div class="mt-6 flex flex-col items-center space-y-3">
 
+    <!-- Navigation Buttons -->
+    <div class="flex space-x-4">
+      <button id="prevButton"
+              class="w-28 py-2 px-4 bg-green-700 text-white rounded hover:bg-green-800">
+        Previous
+      </button>
+      <button id="nextButton"
+              class="w-28 py-2 px-4 bg-green-700 text-white rounded hover:bg-green-800">
+        Next
+      </button>
+    </div>
 
-    <!-- Pagination buttons -->
-  <div id="buttons" class="mt-6 flex gap-4">
-    <button id="prevButton" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 mr-2">Previous</button>
-<button id="nextButton" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Next</button>
+    <!-- Rate limit warning text -->
+    <div id="rateMessage"
+         class="text-red-600 font-medium h-5 text-center transition-opacity duration-300 ease-in-out">
+    </div>
+
+    <!-- Spinner (shown while waiting for API response) -->
+    <div id="spinner" class="opacity-0 transition-opacity duration-300 ease-in-out">
+      <div class="w-6 h-6 border-4 border-gray-300 border-t-green-600 rounded-full animate-spin"></div>
+    </div>
+
   </div>
 
-    
-    <script src="pagination.js"></script>
+  <!-- Load JavaScript logic -->
+  <script type="module" src="pagination.js"></script>
 </body>
 </html>

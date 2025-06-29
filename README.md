@@ -1,17 +1,27 @@
 # Pagination Project
 
-## Description
-This project fetches posts from a fake blog API and displays them with pagination (10 per page). You can use the buttons to go to the next or previous page.
+## 📖 Description
+This project fetches character data from the Rick and Morty API and displays the results with pagination. Users can click buttons to navigate through the results in sets of 5 per page.
 
-## Features
-- Displays 10 posts at a time
-- Previous/Next button to switch pages
-- Rate limit of 2 seconds between clicks
-- Error handling
+Originally, the project used the JSONPlaceholder blog API. It has since been updated to use the Rick and Morty API, which returns a **wrapped object** instead of a plain array.
 
-## How to Run
-1. Open `index.html` in your browser.
-2. Click "Next" or "Previous" to change the page.
+## ✨ Features
+- Displays 5 characters per page
+- Next/Previous buttons for navigation
+- 2-second rate limit between requests to simulate API throttling
+- Loading spinner while fetching data
+- Friendly error messages and UI feedback
+
+## 🚀 How to Run
+1. Clone the project or download the files.
+2. Open `index.html` in your browser.
+3. Click the **Next** or **Previous** buttons to navigate between pages.
+
+## 🔄 Switched from JSONPlaceholder to Rick and Morty API
+Instead of using this:
+```js
+// JSONPlaceholder example
+const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${postsPerPage}`);
 
 ## Live Site
 (Add your GitHub Pages link here)
