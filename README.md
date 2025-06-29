@@ -56,6 +56,7 @@ const response = await fetch(`https://rickandmortyapi.com/api/character?page=${p
 - W3schools.com for educational purposes
 - OpenAI's ChatGPT for debugging & explaination, design questions and learning
 
-## Emoji	Name	Why it fits
-🌐 Live Site
-(Add your GitHub Pages link here)
+
+## 🌐 Live Site
+
+https://ellene-broome.github.io/-Real-World-API-Integration-wk6-lvl2/
